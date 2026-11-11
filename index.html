@@ -1,197 +1,929 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rahamathullah S – Python Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rahamathullah S | Python Developer</title>
+
+<meta name="description" content="Rahamathullah S - Computer Science graduate, Python developer and software engineer. Explore my projects, skills and experience.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --bg:#EEF2F6; --surface:#FFFFFF; --ink:#14213D; --muted:#52607A; --line:#CBD5E1;
-  --route:#0E7C86; --depot:#D98E04; --bad:#B8C2D1;
-  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
-  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
-  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+:root {
+    --bg: #080D14;
+    --surface: #101923;
+    --deep: #0B1C20;
+    --ink: #E8ECEF;
+    --muted: #9AA8B2;
+    --green: #35D6A0;
+    --mint: #8CCDBB;
+    --line: rgba(71,127,120,.35);
+
+    --heading: 'Bricolage Grotesque', sans-serif;
+    --body: 'IBM Plex Sans', sans-serif;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#0F1722;--surface:#17212F;--ink:#E6ECF3;--muted:#9FB0C6;--line:#2A3A50;--route:#4FC3CC;--depot:#F0B13A;--bad:#3A4A61;color-scheme:dark}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-:root[data-theme="dark"]{--bg:#0F1722;--surface:#17212F;--ink:#E6ECF3;--muted:#9FB0C6;--line:#2A3A50;--route:#4FC3CC;--depot:#F0B13A;--bad:#3A4A61;color-scheme:dark}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--route);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:16px;flex-wrap:wrap}
-.logo{font:800 1.1rem var(--head);text-decoration:none}
-nav a{margin-left:20px;text-decoration:none;color:var(--muted);font-weight:500}
-nav a:hover{color:var(--ink)}
-.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding:56px 0 72px}
-h1{font:800 clamp(2.6rem,6vw,4.6rem)/1 var(--head);letter-spacing:-.03em;margin:0 0 20px}
-.lead{font-size:1.2rem;color:var(--muted);max-width:34ch;margin:0 0 28px}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:12px 22px;border-radius:999px;font:700 1rem var(--head);text-decoration:none;border:2px solid var(--ink);cursor:pointer;background:transparent;color:var(--ink)}
-.btn.fill{background:var(--ink);color:var(--bg)}
-.board{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px}
-.board svg{width:100%;height:auto;display:block}
-.board .bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px}
-.board .len{font-weight:500;color:var(--muted);font-size:.95rem}
-.board .btn{padding:8px 16px;font-size:.9rem}
-.board p{margin:8px 0 0;font-size:.85rem;color:var(--muted)}
-section{padding:64px 0;border-top:1px solid var(--line)}
-h2{font:700 clamp(1.7rem,3.4vw,2.3rem)/1.15 var(--head);letter-spacing:-.02em;margin:0 0 28px}
-h3{font:700 1.35rem/1.25 var(--head);margin:0 0 6px}
-.about{max-width:62ch}
-.proj{display:grid;grid-template-columns:260px 1fr;gap:32px;padding:28px 0;border-top:1px solid var(--line)}
-.proj:first-of-type{border-top:0;padding-top:0}
-.proj .meta{color:var(--muted);font-size:.95rem}
-.proj ul{margin:12px 0 0;padding-left:1.1em}
-.proj li{margin-bottom:6px;max-width:68ch}
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
-.skills h3{font-size:1.05rem}
-.skills p{margin:0;color:var(--muted)}
-.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:2px solid var(--route)}
-.tl li{position:relative;margin-bottom:26px}
-.tl li::before{content:"";position:absolute;left:-30px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--route)}
-.tl .when{color:var(--muted);font-size:.95rem}
-.contact a.mail{font:800 clamp(1.4rem,4vw,2.4rem) var(--head);letter-spacing:-.02em;word-break:break-all}
-footer{padding:32px 0 48px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
-@media (max-width:820px){
-  .hero{grid-template-columns:1fr;gap:32px;padding-top:24px}
-  .proj{grid-template-columns:1fr;gap:8px}
-  nav a{margin:0 16px 0 0}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 50% 20%, rgba(53,214,160,.09), transparent 45%),
+        radial-gradient(ellipse at 15% 75%, rgba(71,127,120,.12), transparent 40%),
+        linear-gradient(145deg, #080D14, #101923 55%, #0B1C20);
+
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: var(--body);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+#network {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 45%,
+        rgba(3,6,10,.65) 100%
+    );
+}
+
+.container {
+    width: min(1100px, 90%);
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* NAVIGATION */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    gap: 20px;
+}
+
+.logo {
+    font: 800 25px var(--heading);
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--green);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 55px;
+    padding: 75px 0;
+}
+
+.tag {
+    color: var(--green);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+h1 {
+    font: 800 clamp(45px, 6vw, 75px)/1.05 var(--heading);
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    color: var(--green);
+}
+
+.hero-description {
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 480px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 23px;
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: #06120D;
+    border-color: var(--green);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 22px rgba(53,214,160,.25);
+}
+
+/* ROUTING VISUALIZATION */
+
+.visual {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: rgba(16,25,35,.75);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 60px rgba(0,0,0,.2);
+}
+
+.visual svg {
+    width: 100%;
+    display: block;
+}
+
+.visual p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.visual button {
+    background: transparent;
+    color: var(--green);
+    border: 1px solid var(--green);
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 85px 0;
+    border-top: 1px solid var(--line);
+}
+
+.section-label {
+    color: var(--green);
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font: 700 clamp(32px, 4vw, 45px) var(--heading);
+    margin-bottom: 30px;
+}
+
+h3 {
+    font: 700 22px var(--heading);
+    margin-bottom: 10px;
+}
+
+.about-text {
+    max-width: 750px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+/* PROJECTS */
+
+.project {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 35px;
+    padding: 35px 0;
+    border-top: 1px solid var(--line);
+}
+
+.project:first-of-type {
+    border-top: none;
+}
+
+.project-type {
+    color: var(--green);
+    font-size: 13px;
+}
+
+.project ul {
+    padding-left: 20px;
+    color: var(--muted);
+}
+
+.project li {
+    margin-bottom: 12px;
+}
+
+.tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.tech span {
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    color: var(--mint);
+    font-size: 12px;
+}
+
+/* SKILLS */
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    background: rgba(16,25,35,.75);
+    border: 1px solid var(--line);
+    padding: 25px;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--green);
+    box-shadow: 0 10px 30px rgba(53,214,160,.08);
+}
+
+.skill-card h3 {
+    color: var(--green);
+    font-size: 18px;
+}
+
+.skill-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* EXPERIENCE */
+
+.experience-item {
+    padding: 25px;
+    border-left: 2px solid var(--green);
+    background: rgba(16,25,35,.65);
+    margin-bottom: 20px;
+    border-radius: 0 12px 12px 0;
+}
+
+.experience-item .date {
+    color: var(--green);
+    font-size: 13px;
+}
+
+/* CONTACT */
+
+.contact-box {
+    padding: 40px;
+    border: 1px solid var(--line);
+    background: rgba(16,25,35,.7);
+    border-radius: 20px;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.contact-box a {
+    color: var(--green);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 0;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 800px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 50px 0;
+        gap: 35px;
+    }
+
+    .project {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 500px) {
+    h1 {
+        font-size: 43px;
+        letter-spacing: -2px;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 55px 0;
+    }
+
+    .contact-box {
+        padding: 23px;
+    }
 }
 </style>
 </head>
-<body>
-<div class="wrap">
-  <header class="top">
-    <a class="logo" href="#top">Rahamathullah S</a>
-    <nav aria-label="Sections"><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
-  </header>
 
-  <main id="top">
-    <div class="hero">
-      <div>
-        <h1>I make Python solve routing and sensing problems.</h1>
-        <p class="lead">Computer Science graduate from Chennai, looking for an entry-level Python Developer or Software Engineer role.</p>
-        <div class="btns">
-          <a class="btn fill" href="#projects">See my projects</a>
-          <a class="btn" href="mailto:rahamathu289@gmail.com">Email me</a>
+<body>
+
+<canvas id="network"></canvas>
+<div class="overlay"></div>
+
+<div class="container">
+
+<!-- NAVIGATION -->
+
+<header>
+    <a href="#home" class="logo">RS<span>.</span></a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home" style="border:0">
+
+    <div>
+        <div class="tag">Building with Python & Technology</div>
+
+        <h1>
+            I make <span>Python</span> solve routing and sensing problems.
+        </h1>
+
+        <p class="hero-description">
+            Computer Science graduate from Chennai, interested in
+            Python development, software engineering, optimization
+            and emerging technologies.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn btn-primary">Explore Projects</a>
+            <a href="mailto:rahamathu289@gmail.com" class="btn">Contact Me</a>
         </div>
-      </div>
-      <div class="board">
-        <svg id="map" viewBox="0 0 100 78" role="img" aria-label="Delivery stops joined by a route. Press Optimize route to shorten it."></svg>
-        <div class="bar">
-          <span class="len" id="len" aria-live="polite"></span>
-          <span><button class="btn" id="opt">Optimize route</button> <button class="btn" id="shuf">New stops</button></span>
-        </div>
-        <p>A small demo of the vehicle routing idea from my project: a tangled route gets shortened step by step (2-opt, a classical method).</p>
-      </div>
     </div>
 
-    <section id="about">
-      <h2>About</h2>
-      <p class="about">I graduated in 2026 with a B.E. in Computer Science and Engineering from Sathyabama Institute of Science and Technology (CGPA 7.0 / 10). My strengths are Python, data structures, algorithms and problem solving. I enjoy optimization problems, connecting hardware to software, and learning about emerging technology such as quantum computing.</p>
-    </section>
+    <div class="visual">
+        <svg id="routeMap" viewBox="0 0 400 300"></svg>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <article class="proj">
-        <div><h3>Quantum Computing-Based Vehicle Routing</h3><div class="meta">Developer · Python, Qiskit basics</div></div>
+        <button onclick="newRoute()">New Route</button>
+
+        <button onclick="optimizeRoute()">Optimize Route</button>
+
+        <p>
+            Interactive demonstration of vehicle routing and
+            route optimization concepts.
+        </p>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-label">01 / About Me</div>
+
+    <h2>Who I Am</h2>
+
+    <p class="about-text">
+        I am Rahamathullah S, a 2026 Computer Science and Engineering
+        graduate from Sathyabama Institute of Science and Technology,
+        Chennai, with a CGPA of 7.0/10.
+
+        I have a strong interest in Python programming, problem-solving,
+        data structures, algorithms, software development and
+        emerging technologies.
+
+        I enjoy building practical applications that connect
+        software, hardware and intelligent optimization.
+    </p>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="section-label">02 / Selected Work</div>
+
+    <h2>My Projects</h2>
+
+    <article class="project">
+
+        <div>
+            <div class="project-type">01 / Quantum Computing</div>
+
+            <h3>Quantum Computing-Based Vehicle Routing Problem</h3>
+
+            <div class="tech">
+                <span>Python</span>
+                <span>QUBO</span>
+                <span>Qiskit</span>
+                <span>Optimization</span>
+            </div>
+        </div>
+
         <ul>
-          <li>Built a Python optimization model for the Vehicle Routing Problem using quantum computing principles.</li>
-          <li>Formulated the problem as a QUBO and applied quantum-inspired techniques to allocate routes to vehicles.</li>
-          <li>Compared classical and quantum-inspired approaches on routing efficiency and computational performance.</li>
-          <li>Analyzed the results to find ways to reduce routing complexity and use resources better.</li>
+            <li>
+                Developed a Python-based optimization model to solve
+                Vehicle Routing Problems using quantum computing principles.
+            </li>
+
+            <li>
+                Applied QUBO formulation and quantum-inspired optimization
+                techniques for efficient vehicle route allocation.
+            </li>
+
+            <li>
+                Evaluated classical and quantum-inspired approaches to
+                compare routing efficiency and computational performance.
+            </li>
+
+            <li>
+                Analyzed optimization results to identify opportunities
+                for reducing routing complexity and improving resource utilization.
+            </li>
         </ul>
-      </article>
-      <article class="proj">
-        <div><h3>Smart Plant Pot</h3><div class="meta">Developer · IoT, sensors, cloud dashboard</div></div>
+
+    </article>
+
+    <article class="project">
+
+        <div>
+            <div class="project-type">02 / Internet of Things</div>
+
+            <h3>Smart Plant Pot</h3>
+
+            <div class="tech">
+                <span>IoT</span>
+                <span>Sensors</span>
+                <span>Cloud Dashboard</span>
+                <span>Data Visualization</span>
+            </div>
+        </div>
+
         <ul>
-          <li>Built an IoT plant monitor that measures soil moisture, temperature and light intensity.</li>
-          <li>Sent sensor readings to a cloud-connected dashboard for real-time monitoring.</li>
-          <li>Visualized environmental data to support plant-care decisions.</li>
-          <li>Combined hardware and software to reduce manual checking.</li>
+            <li>
+                Developed an IoT-based smart plant monitoring system
+                using sensors to measure soil moisture, temperature
+                and light intensity.
+            </li>
+
+            <li>
+                Integrated sensor data collection with a cloud-connected
+                dashboard for real-time plant monitoring.
+            </li>
+
+            <li>
+                Implemented data visualization to track environmental
+                conditions and support informed plant-care decisions.
+            </li>
+
+            <li>
+                Combined hardware and software components to automate
+                plant monitoring and minimize manual observation.
+            </li>
         </ul>
-      </article>
-    </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills">
-        <div><h3>Language</h3><p>Python</p></div>
-        <div><h3>Libraries</h3><p>NumPy, Pandas, Matplotlib, Qiskit (basics)</p></div>
-        <div><h3>Web</h3><p>HTML5, CSS3, React</p></div>
-        <div><h3>Database</h3><p>MySQL</p></div>
-        <div><h3>Tools</h3><p>GitHub, Visual Studio Code, IntelliJ IDEA, Eclipse, MS Office</p></div>
-        <div><h3>Core concepts</h3><p>Data structures, algorithms, OOP, problem solving, website development</p></div>
-      </div>
-    </section>
+    </article>
 
-    <section id="experience">
-      <h2>Experience, learning and leadership</h2>
-      <ol class="tl">
-        <li><h3>Team Leader, Sathyabama X Outreach Programs</h3><div class="when">Oct 2024 – Jan 2025</div></li>
-        <li><h3>Core Team Member, Catalyst Club, Sathyabama</h3><div class="when">Jun 2024 – Oct 2025</div></li>
-        <li><h3>MATLAB Programming certification, MathWorks</h3><div class="when">Dec 2023 – Jan 2024</div></li>
-        <li><h3>Web Development Intern, ACD Codux Digital</h3><div class="when">3 months, completed</div></li>
-      </ol>
-    </section>
+</section>
 
-    <section id="contact" class="contact">
-      <h2>Let’s talk</h2>
-      <p>I’m open to entry-level Python and software roles in Chennai or remote.</p>
-      <p><a class="mail" href="mailto:rahamathu289@gmail.com">rahamathu289@gmail.com</a></p>
-      <p>Phone: <a href="tel:+917200049166">+91 7200049166</a><br>Languages: English, Tamil</p>
-    </section>
-  </main>
-  <footer>Outside work: badminton, swimming, drawing and coding challenges.</footer>
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="section-label">03 / Expertise</div>
+
+    <h2>Technical Skills</h2>
+
+    <div class="skills">
+
+        <div class="skill-card">
+            <h3>Programming</h3>
+            <p>Python</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Libraries</h3>
+            <p>NumPy, Pandas, Matplotlib, Qiskit (Basics)</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Web Development</h3>
+            <p>HTML5, CSS3, React</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Database</h3>
+            <p>MySQL</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Developer Tools</h3>
+            <p>GitHub, VS Code, IntelliJ IDEA, Eclipse, MS Office</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Core Concepts</h3>
+            <p>Data Structures, Algorithms, OOP, Problem Solving</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+    <div class="section-label">04 / Professional Journey</div>
+
+    <h2>Experience & Activities</h2>
+
+    <div class="experience-item">
+        <div class="date">3 Months / Completed</div>
+        <h3>Web Development Intern</h3>
+        <p>ACD Codux Digital</p>
+    </div>
+
+    <div class="experience-item">
+        <div class="date">October 2024 – January 2025</div>
+        <h3>Team Leader</h3>
+        <p>Sathyabama X Outreach Programs</p>
+    </div>
+
+    <div class="experience-item">
+        <div class="date">June 2024 – October 2025</div>
+        <h3>Core Team Member</h3>
+        <p>Catalyst Club, Sathyabama</p>
+    </div>
+
+    <div class="experience-item">
+        <div class="date">December 2023 – January 2024</div>
+        <h3>MATLAB Programming Certification</h3>
+        <p>MathWorks</p>
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="section-label">05 / Get In Touch</div>
+
+    <h2>Let's Build Something Together.</h2>
+
+    <div class="contact-box">
+
+        <p>
+            I am looking for entry-level opportunities in Python
+            development and software engineering.
+        </p>
+
+        <p>
+            Email:
+            <a href="mailto:rahamathu289@gmail.com">
+                rahamathu289@gmail.com
+            </a>
+        </p>
+
+        <p>
+            Phone:
+            <a href="tel:+917200049166">
+                +91 7200049166
+            </a>
+        </p>
+
+        <p>Location: Chennai, India</p>
+
+        <p>Languages: English, Tamil</p>
+
+        <div class="buttons">
+            <a href="mailto:rahamathu289@gmail.com"
+               class="btn btn-primary">Send Email</a>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 Rahamathullah S. Designed and developed with HTML, CSS and JavaScript.</p>
+    <p>Python Developer | Software Engineer</p>
+</footer>
+
 </div>
 
 <script>
-(function(){
-  var svg=document.getElementById('map'),lenEl=document.getElementById('len'),optBtn=document.getElementById('opt');
-  var NS='http://www.w3.org/2000/svg',pts=[],tour=[],timer=null;
-  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function d(a,b){return Math.hypot(pts[a][0]-pts[b][0],pts[a][1]-pts[b][1])}
-  function total(t){var s=0;for(var i=0;i<t.length;i++)s+=d(t[i],t[(i+1)%t.length]);return s}
-  function init(){
-    clearInterval(timer);pts=[];tour=[];
-    pts.push([50,39]);
-    for(var i=0;i<11;i++)pts.push([8+Math.random()*84,8+Math.random()*62]);
-    var rest=[];for(i=1;i<pts.length;i++)rest.push(i);
-    for(i=rest.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=rest[i];rest[i]=rest[j];rest[j]=t}
-    tour=[0].concat(rest);optBtn.disabled=false;draw(false);
-  }
-  function draw(done){
-    var s='<polyline points="'+tour.concat(0).map(function(i){return pts[i].join(',')}).join(' ')+'" fill="none" stroke="'+(done?'var(--route)':'var(--bad)')+'" stroke-width="'+(done?1.4:1)+'" stroke-linejoin="round"/>';
-    pts.forEach(function(p,i){
-      s+=i===0?'<rect x="'+(p[0]-2.4)+'" y="'+(p[1]-2.4)+'" width="4.8" height="4.8" rx="1" fill="var(--depot)"/>':'<circle cx="'+p[0]+'" cy="'+p[1]+'" r="1.9" fill="var(--ink)"/>';
-    });
-    svg.innerHTML=s;
-    lenEl.textContent='Route length: '+total(tour).toFixed(0)+(done?' (optimized)':'');
-  }
-  function step(){
-    var n=tour.length,best=total(tour);
-    for(var i=1;i<n-1;i++)for(var j=i+1;j<n;j++){
-      var c=tour.slice(0,i).concat(tour.slice(i,j+1).reverse(),tour.slice(j+1));
-      if(total(c)<best-1e-9){tour=c;return true}
+
+/* NETWORK BACKGROUND ANIMATION */
+
+const canvas = document.getElementById("network");
+const ctx = canvas.getContext("2d");
+
+let nodes = [];
+
+function resizeCanvas() {
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    nodes = [];
+
+    const count = Math.min(
+        65,
+        Math.floor(window.innerWidth * window.innerHeight / 16000)
+    );
+
+    for (let i = 0; i < count; i++) {
+
+        nodes.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - .5) * .35,
+            vy: (Math.random() - .5) * .35,
+            radius: Math.random() * 2.5 + 1,
+            glow: Math.random() > .85
+        });
+
     }
-    return false;
-  }
-  optBtn.addEventListener('click',function(){
-    clearInterval(timer);optBtn.disabled=true;
-    if(reduce){while(step());draw(true);return}
-    timer=setInterval(function(){
-      if(step())draw(false);else{clearInterval(timer);draw(true)}
-    },380);
-  });
-  document.getElementById('shuf').addEventListener('click',init);
-  init();
-})();
+
+}
+
+function animateNetwork() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    nodes.forEach((a, i) => {
+
+        a.x += a.vx;
+        a.y += a.vy;
+
+        if (a.x < 0 || a.x > canvas.width) a.vx *= -1;
+        if (a.y < 0 || a.y > canvas.height) a.vy *= -1;
+
+        nodes.slice(i + 1).forEach(b => {
+
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 180) {
+
+                ctx.beginPath();
+
+                ctx.strokeStyle =
+                    `rgba(71,127,120,${(1-distance/180)*.45})`;
+
+                ctx.lineWidth = .8;
+
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(b.x, b.y);
+                ctx.stroke();
+
+            }
+
+        });
+
+        ctx.beginPath();
+
+        ctx.arc(a.x, a.y, a.radius, 0, Math.PI * 2);
+
+        ctx.fillStyle = a.glow ? "#35D6A0" : "#8CCDBB";
+
+        ctx.shadowBlur = a.glow ? 15 : 7;
+        ctx.shadowColor = "#35D6A0";
+
+        ctx.fill();
+
+        ctx.shadowBlur = 0;
+
+    });
+
+    requestAnimationFrame(animateNetwork);
+
+}
+
+window.addEventListener("resize", resizeCanvas);
+
+resizeCanvas();
+animateNetwork();
+
+
+/* INTERACTIVE VEHICLE ROUTING DEMO */
+
+const map = document.getElementById("routeMap");
+
+let points = [];
+let route = [];
+
+function newRoute() {
+
+    points = [];
+
+    for (let i = 0; i < 12; i++) {
+
+        points.push({
+            x: 30 + Math.random() * 340,
+            y: 30 + Math.random() * 240
+        });
+
+    }
+
+    route = points.map((_, i) => i);
+
+    drawRoute();
+
+}
+
+function drawRoute() {
+
+    let html = "";
+
+    let path = route.map(i =>
+        `${points[i].x},${points[i].y}`
+    ).join(" ");
+
+    html += `
+        <polyline
+            points="${path} ${points[route[0]].x},${points[route[0]].y}"
+            fill="none"
+            stroke="#35D6A0"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+    `;
+
+    points.forEach((point, i) => {
+
+        html += `
+            <circle
+                cx="${point.x}"
+                cy="${point.y}"
+                r="${i === 0 ? 7 : 5}"
+                fill="${i === 0 ? '#35D6A0' : '#8CCDBB'}"
+            />
+        `;
+
+    });
+
+    map.innerHTML = html;
+
+}
+
+function optimizeRoute() {
+
+    let improved = true;
+
+    while (improved) {
+
+        improved = false;
+
+        for (let i = 1; i < route.length - 1; i++) {
+
+            for (let j = i + 1; j < route.length; j++) {
+
+                const distance = (a, b) => {
+
+                    const dx = points[a].x - points[b].x;
+                    const dy = points[a].y - points[b].y;
+
+                    return Math.sqrt(dx * dx + dy * dy);
+
+                };
+
+                const oldDistance =
+                    distance(route[i - 1], route[i]) +
+                    distance(route[j], route[(j + 1) % route.length]);
+
+                const newDistance =
+                    distance(route[i - 1], route[j]) +
+                    distance(route[i], route[(j + 1) % route.length]);
+
+                if (newDistance < oldDistance) {
+
+                    const reversed = route.slice(i, j + 1).reverse();
+
+                    route.splice(i, j - i + 1, ...reversed);
+
+                    improved = true;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    drawRoute();
+
+}
+
+newRoute();
+
 </script>
+
 </body>
 </html>
